@@ -1,0 +1,26 @@
+<div class="login-overlay" (click)="close()"></div>
+<div class="login-dialog-container">
+  <div class="login-dialog">
+    <div class="dialog-header">
+      <h3>Login to Property Palace</h3>
+      <button (click)="close()" class="close-button">&times;</button>
+    </div>
+    <div class="dialog-body">
+      <p class="dialog-subheading">
+        For demonstration purposes, please select a role to log in.
+      </p>
+      <div class="button-group">
+        <button (click)="login('Admin')" class="btn btn-primary">
+          Login as Admin
+        </button>
+        <button (click)="login('User')" class="btn btn-secondary">
+          Login as User
+        </button>
+      </div>
+      <p class="dialog-footer-text">
+        Admin: Full CRUD access | User: Read-only access
+      </p>
+    </div>
+  </div>
+</div>
+

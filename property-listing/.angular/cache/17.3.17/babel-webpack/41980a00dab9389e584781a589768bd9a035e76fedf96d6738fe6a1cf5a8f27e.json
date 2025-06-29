@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { PropertyListComponent } from './components/property-list/property-list.component';\nexport const routes = [{\n  path: '',\n  component: PropertyListComponent\n}, {\n  path: '**',\n  redirectTo: ''\n}];","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

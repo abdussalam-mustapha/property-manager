@@ -1,0 +1,86 @@
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+}
+
+.login-dialog-container {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-dialog {
+  background-color: var(--surface-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 28rem; /* max-w-md */
+  margin: 0 auto;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.dialog-header h3 {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600;
+  margin: 0;
+}
+
+.close-button {
+  color: var(--text-color-light);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: var(--text-color);
+}
+
+.dialog-body {
+  padding-top: 1rem;
+}
+
+.dialog-subheading {
+  font-size: 0.875rem; /* text-sm */
+  color: var(--text-color-light);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268; /* A darker shade of secondary-color */
+}
+
+.dialog-footer-text {
+  font-size: 0.75rem; /* text-xs */
+  color: var(--text-color-light);
+  margin-top: 1rem;
+  text-align: center;
+}

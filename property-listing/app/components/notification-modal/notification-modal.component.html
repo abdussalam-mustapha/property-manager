@@ -1,0 +1,19 @@
+<div *ngIf="notification$ | async as notification" class="modal-backdrop">
+  <div class="modal-container" [ngClass]="'modal-' + notification.type">
+    <div class="modal-header">
+      <h3 class="modal-title">{{ notification.type | titlecase }}</h3>
+    </div>
+    <div class="modal-body">
+      <p>{{ notification.message }}</p>
+    </div>
+    <div class="modal-footer">
+      <ng-container *ngIf="notification.type === 'confirm'">
+        <button (click)="onCancel()" class="btn btn-secondary">Cancel</button>
+        <button (click)="onConfirm(notification)" class="btn btn-primary">Confirm</button>
+      </ng-container>
+      <ng-container *ngIf="notification.type !== 'confirm'">
+        <button (click)="onCancel()" class="btn btn-primary">OK</button>
+      </ng-container>
+    </div>
+  </div>
+</div>

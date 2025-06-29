@@ -1,0 +1,127 @@
+<div class="property-list-container">
+  <div class="filters-and-actions-bar">
+    <div class="filters-grid">
+      <input
+        type="text"
+        placeholder="Search by name or location..."
+        [value]="searchTerm.value"
+        (input)="onSearch($event)"
+        class="form-input search-input"
+      />
+      <select (change)="onFilterTypeChange($any($event.target).value)" class="form-select">
+        <option value="all">All Types</option>
+        <option value="Apartment">Apartment</option>
+        <option value="House">House</option>
+        <option value="Condo">Condo</option>
+        <option value="Townhouse">Townhouse</option>
+        <option value="Commercial">Commercial</option>
+      </select>
+      <select (change)="onFilterLocationChange($any($event.target).value)" class="form-select">
+        <option value="all">All Locations</option>
+        <option *ngFor="let location of uniqueLocations$ | async" [value]="location">{{ location }}</option>
+      </select>
+      <div class="sort-control">
+        <select (change)="onSortChange($any($event.target).value)" class="form-select">
+          <option value="name">Sort by Name</option>
+          <option value="price">Sort by Price</option>
+          <option value="dateAdded">Sort by Date Added</option>
+        </select>
+        <button (click)="toggleSortOrder()" class="btn-sort">
+          {{ sortOrder.value === 'asc' ? '↑' : '↓' }}
+        </button>
+      </div>
+    </div>
+    <div class="actions-toolbar">
+      <div class="main-actions">
+        <button *ngIf="(currentUser$ | async)?.role === 'Admin'" (click)="openPropertyForm(null)" class="btn btn-primary">
+          Add Property
+        </button>
+        <button (click)="exportToCSV()" class="btn btn-secondary">
+          Export to CSV
+        </button>
+      </div>
+      <div class="view-toggle">
+        <button (click)="viewMode = 'grid'" [class.active]="viewMode === 'grid'" class="btn-view-mode">
+          Grid
+        </button>
+        <button (click)="viewMode = 'table'" [class.active]="viewMode === 'table'" class="btn-view-mode">
+          Table
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="(paginatedProperties$ | async) as properties">
+    <div *ngIf="properties.length > 0; else noProperties">
+      <div *ngIf="viewMode === 'grid'" class="property-grid">
+        <div *ngFor="let property of properties" class="property-card">
+          <div class="card-content">
+            <h3 class="card-title">{{ property.name }}</h3>
+            <div class="card-meta">
+              <div class="meta-item">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>{{ property.location }}</span>
+              </div>
+            </div>
+            <div class="card-details">
+              <div class="detail-item">
+                <i class="bi bi-cash-coin"></i>
+                <span>{{ property.price | currency }}</span>
+              </div>
+              <div class="detail-item">
+                <i class="bi bi-rulers"></i>
+                <span>{{ property.area }} sqft</span>
+              </div>
+            </div>
+            <div class="card-actions" *ngIf="(currentUser$ | async)?.role === 'Admin'">
+              <button (click)="openPropertyForm(property)" class="btn-edit">Edit</button>
+              <button (click)="deleteProperty(property.id)" class="btn-delete">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="viewMode === 'table'" class="property-table-container">
+        <table class="property-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Location</th>
+              <th>Price</th>
+              <th *ngIf="(currentUser$ | async)?.role === 'Admin'">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let property of properties">
+              <td>{{ property.name }}</td>
+              <td>{{ property.type }}</td>
+              <td>{{ property.location }}</td>
+              <td>{{ property.price | currency }}</td>
+              <td *ngIf="(currentUser$ | async)?.role === 'Admin'">
+                <div class="table-actions">
+                  <button (click)="openPropertyForm(property)" class="btn-edit">Edit</button>
+                  <button (click)="deleteProperty(property.id)" class="btn-delete">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      
+    </div>
+  </ng-container>
+
+  <ng-template #noProperties>
+    <div class="no-properties-message">
+      <p>No properties found. Try adjusting your filters or adding a new property.</p>
+    </div>
+  </ng-template>
+</div>
+
+<app-property-form 
+  *ngIf="isPropertyFormOpen" 
+  [property]="editingProperty" 
+  (closeDialog)="onPropertyFormClose($event)">
+</app-property-form>
