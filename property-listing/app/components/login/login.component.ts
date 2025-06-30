@@ -18,7 +18,6 @@ export class LoginComponent {
     const username = role === 'Admin' ? 'Admin User' : 'Regular User';
     this.authService.login(username, role);
     this.closeDialog.emit(true);
-    // In a real app, you'd show a toast notification here.
     console.log(`Logged in as ${role}`);
   }
 

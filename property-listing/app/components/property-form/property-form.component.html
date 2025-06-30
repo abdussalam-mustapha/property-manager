@@ -8,12 +8,12 @@
     <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()" class="modal-body">
       <div class="form-grid">
         <div class="form-group">
-          <label for="name" class="block text-sm font-medium text-gray-700">Property Name *</label>
-          <input id="name" formControlName="name" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+          <label for="name" class="">Property Name *</label>
+          <input id="name" formControlName="name" type="text" class="">
         </div>
         <div class="form-group">
-          <label for="type" class="block text-sm font-medium text-gray-700">Property Type</label>
-          <select id="type" formControlName="type" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+          <label for="type" class="">Property Type</label>
+          <select id="type" formControlName="type" class="">
             <option>Apartment</option>
             <option>House</option>
             <option>Condo</option>
@@ -24,38 +24,38 @@
       </div>
 
       <div class="form-group">
-        <label for="location" class="block text-sm font-medium text-gray-700">Location *</label>
-        <input id="location" formControlName="location" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+        <label for="location" class="">Location *</label>
+        <input id="location" formControlName="location" type="text" class="">
       </div>
 
       <div class="form-grid-col3">
         <div class="form-group">
-          <label for="price" class="block text-sm font-medium text-gray-700">Price *</label>
-          <input id="price" formControlName="price" type="number" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+          <label for="price" class="">Price *</label>
+          <input id="price" formControlName="price" type="number" class="">
         </div>
         <div class="form-group">
-          <label for="bedrooms" class="block text-sm font-medium text-gray-700">Bedrooms</label>
-          <input id="bedrooms" formControlName="bedrooms" type="number" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+          <label for="bedrooms" class="">Bedrooms</label>
+          <input id="bedrooms" formControlName="bedrooms" type="number" class="">
         </div>
         <div class="form-group">
-          <label for="bathrooms" class="block text-sm font-medium text-gray-700">Bathrooms</label>
-          <input id="bathrooms" formControlName="bathrooms" type="number" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+          <label for="bathrooms" class="">Bathrooms</label>
+          <input id="bathrooms" formControlName="bathrooms" type="number" class="">
         </div>
       </div>
 
       <div class="form-group">
-        <label for="area" class="block text-sm font-medium text-gray-700">Area (sqft) *</label>
-        <input id="area" formControlName="area" type="number" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+        <label for="area" class="">Area (sqft) *</label>
+        <input id="area" formControlName="area" type="number" class="">
       </div>
 
       <div class="form-group">
-        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-        <textarea id="description" formControlName="description" rows="3" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"></textarea>
+        <label for="description" class="">Description</label>
+        <textarea id="description" formControlName="description" rows="3" class=""></textarea>
       </div>
 
       <div class="modal-footer">
-        <button type="button" (click)="close()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">Cancel</button>
-        <button type="submit" [disabled]="propertyForm.invalid" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:bg-gray-400">{{ isEditing ? 'Update Property' : 'Create Property' }}</button>
+        <button type="button" (click)="close()" class="">Cancel</button>
+        <button type="submit" [disabled]="propertyForm.invalid" class="">{{ isEditing ? 'Update Property' : 'Create Property' }}</button>
       </div>
     </form>
   </div>
