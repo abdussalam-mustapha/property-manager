@@ -5,7 +5,7 @@
     </h1>
     <div class="header-actions">
       <ng-container *ngIf="currentUser$ | async as user">
-        <span class="welcome-message">Welcome, {{ user.username }} ({{ user.role }})</span>
+        <span class="welcome-message">Welcome ({{ user.role }})</span>
         <button (click)="logout()" class="btn btn-logout">
           Logout
         </button>
