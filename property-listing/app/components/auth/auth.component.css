@@ -1,16 +1,9 @@
-/* .auth-wrapper {
-  background: #000;
-} */
-
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* background-color: var(--background-color); */
-  /* Combine an overlay and the hero image in one background definition */
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/house.jpeg");
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
