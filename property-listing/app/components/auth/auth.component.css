@@ -1,9 +1,17 @@
+/* .auth-wrapper {
+  background: #000;
+} */
+
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
+  background-image: url("../../assets/house.jpeg");
+  background-color: #00000044;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .auth-card {
