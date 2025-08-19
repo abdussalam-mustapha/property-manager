@@ -231,14 +231,17 @@
   }
 
   .property-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 1.5rem;
     padding: 0;
   }
 
   .property-card {
     width: 100%;
-    max-width: none;
+    max-width: 300px;
   }
 
   .card-content {
